@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
-import { CounterButton, GithubButton, MaterialButton } from 'components';
+import { CounterButton, GithubButton } from 'components';
 
-export default class Home extends Component {
+export default class Home2 extends Component {
   render() {
-    const styles = require('./Home.scss');
+    const styles = require('./Home2.scss');
     // require the logo image both from client and server
     const logoImage = require('./logo.png');
     return (
@@ -16,7 +16,7 @@ export default class Home extends Component {
                 <img src={logoImage}/>
               </p>
             </div>
-            <h1>This is Niko's Home Page</h1>
+            <h1>This is the Old Page</h1>
 
             <h2>All the modern best practices in one example.</h2>
 
@@ -38,7 +38,6 @@ export default class Home extends Component {
                           width={160}
                           height={30}
                           count large/>
-            <MaterialButton/>
 
             <p className={styles.humility}>
               Created and maintained by <a href="https://twitter.com/erikras" target="_blank">@erikras</a>.

@@ -4,9 +4,11 @@ import { connect } from 'react-redux';
 import DocumentMeta from 'react-document-meta';
 import { isLoaded as isInfoLoaded, load as loadInfo } from 'redux/modules/info';
 import { isLoaded as isAuthLoaded, load as loadAuth, logout } from 'redux/modules/auth';
-import { InfoBar } from 'components';
+import { InfoBar, Test, MaterialLeftNav } from 'components';
 import { pushState } from 'redux-router';
 import config from '../../config';
+import injectTapEventPlugin from 'react-tap-event-plugin';
+injectTapEventPlugin();
 
 const NavbarLink = ({to, className, component, children}) => {
   const Comp = component || Link;
@@ -96,7 +98,9 @@ export default class App extends Component {
         <div className={styles.appContent}>
           {this.props.children}
         </div>
+        <Test/>
         <InfoBar/>
+        <MaterialLeftNav/>
 
         <div className="well text-center">
           Have questions? Ask for help <a
