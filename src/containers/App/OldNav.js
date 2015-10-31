@@ -1,3 +1,5 @@
+{ /* const {user} = this.props; */ }
+
         <nav className="navbar navbar-default navbar-fixed-top">
           <div className="container">
             <NavbarLink to="/" className="navbar-brand" component={IndexLink}>
@@ -25,3 +27,10 @@
             </ul>
           </div>
         </nav>
+
+        <MenuItem primaryText="Survey" onTouchTap={<Link to="/survey"/>} />
+
+                  <MenuItem primaryText="Widgets" onTouchTap={() => history.pushState(null, '/widgets')}>Hello</MenuItem>
+          <MenuItem primaryText="Survey" onTouchTap={() => history.pushState(null, '/survey')}>Goodbye</MenuItem>
+          <MenuItem><Link to="/">Home</Link></MenuItem>
+        </LeftNav>
