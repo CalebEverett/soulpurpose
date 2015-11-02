@@ -21,14 +21,15 @@ injectTapEventPlugin();
 
 @themeDecorator(ThemeManager.getMuiTheme(spTheme))
 @connect(
-  state => ({user: state.auth.user}),
+  state => ({user: state.auth.user, browser: state.browser}),
   {logout, pushState})
 export default class App extends Component {
   static propTypes = {
     children: PropTypes.object.isRequired,
     user: PropTypes.object,
     logout: PropTypes.func.isRequired,
-    pushState: PropTypes.func.isRequired
+    pushState: PropTypes.func.isRequired,
+    browser: PropTypes.object
   };
 
   static contextTypes = {
@@ -64,11 +65,17 @@ export default class App extends Component {
 
   render() {
     const styles = require('./App.scss');
+    const {browser} = this.props;
+    const message = `The viewport's current media type is: ${browser.mediaType}.`;
+
     return (
       <div className={styles.app}>
         <DocumentMeta {...config.app}/>
         <div className={styles.appContent}>
-          <MaterialLeftNav menuitems={menuitems}/>
+          <MaterialLeftNav menuitems={menuitems} browser={browser} />
+          <p>
+            {message}
+          </p>
           {this.props.children}
         </div>
         <Test/>

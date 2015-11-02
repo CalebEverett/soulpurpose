@@ -11,7 +11,8 @@ export default class MaterialLeftNav extends Component {
       primaryText: PropTypes.string.isRequired,
       value: PropTypes.string.isRequired
     }),
-    menuitems: PropTypes.array
+    menuitems: PropTypes.array,
+    browser: PropTypes.object
   }
 
   static contextTypes = {
@@ -30,11 +31,12 @@ export default class MaterialLeftNav extends Component {
 
   render() {
     const styles = require('./MaterialLeftNav.scss');
+    const menuDocked = this.props.browser.greaterThan.medium ? true : false;
 
     return (
       <div>
-        <LeftNav ref="leftNavChildren" docked={false}>
-          {this.props.menuitems.map(function(menuitem, i) {
+        <LeftNav ref="leftNavChildren" docked={menuDocked}>
+          {this.props.menuitems.map( (menuitem, i) => {
             return ( <MenuItem index={i} primaryText={menuitem.primaryText} value={menuitem.value} onTouchTap={::this._handleMenuItemTouchTap.bind(this, i)}/>
               );
           }, this) }
