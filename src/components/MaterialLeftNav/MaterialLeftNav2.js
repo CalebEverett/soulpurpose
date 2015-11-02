@@ -32,15 +32,6 @@ export default class MaterialLeftNav extends Component {
     this.refs.leftNav.toggle();
   }
 
-  _getSelectedIndex() {
-    let currentItem;
-
-    for (let i = menuItems.length - 1; i >= 0; i--) {
-      currentItem = menuItems[i];
-      if (currentItem.route && this.props.history.isActive(currentItem.route)) return i;
-    }
-  }
-
   render() {
     return (
       <div>
@@ -48,7 +39,6 @@ export default class MaterialLeftNav extends Component {
           ref="leftNav"
           docked
           menuItems={menuItems}
-          selectedIndex={this._getSelectedIndex()}
           onChange={this._onLeftNavChange}
         />
         <RaisedButton label="Toggle Menu" primary onTouchTap={this._handleTouchTap} />

@@ -1,30 +1,48 @@
 /** In this file, we create a React component which incorporates components provided by material-ui */
 
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import LeftNav from 'material-ui/lib/left-nav';
-import MenuItem from 'material-ui/lib/menu/menu-item';
+import MenuItem from 'material-ui/lib/menus/menu-item';
 import RaisedButton from 'material-ui/lib/raised-button';
 
 export default class MaterialLeftNav extends Component {
   static propTypes = {
-    children: React.PropTypes.object
+    menuitem: PropTypes.shape({
+      primaryText: PropTypes.string.isRequired,
+      value: PropTypes.string.isRequired
+    }),
+    menuitems: PropTypes.array
   }
 
-  _handleTouchTap() {
-    this.refs.leftNav.toggle();
+  static contextTypes = {
+    history: PropTypes.object.isRequired
+  }
+
+  _handleMenuItemTouchTap(i) {
+    const {history} = this.context;
+    history.pushState(null, this.props.menuitems[i].value);
+    this.refs.leftNavChildren.toggle();
+  }
+
+  _handleToggleButtonTouchTap() {
+    this.refs.leftNavChildren.toggle();
   }
 
   render() {
+    const styles = require('./MaterialLeftNav.scss');
+
     return (
       <div>
-        <LeftNav ref="leftNavChildren" docked >
-          <MenuItem index={0}>Hello</MenuItem>
-          <MenuItem index={1}>Hello</MenuItem>
-          <MenuItem index={2}>Hello</MenuItem>
+        <LeftNav ref="leftNavChildren" docked={false}>
+          {this.props.menuitems.map(function(menuitem, i) {
+            return ( <MenuItem index={i} primaryText={menuitem.primaryText} value={menuitem.value} onTouchTap={::this._handleMenuItemTouchTap.bind(this, i)}/>
+              );
+          }, this) }
         </LeftNav>
-        <RaisedButton label="Toggle Menu" primary onTouchTap={this._handleTouchTap} />
+        <div className={styles.menuToggle}>
+          <RaisedButton label="Toggle Menu" primary onTouchTap={::this._handleToggleButtonTouchTap} />
+        </div>
       </div>
     );
   }
-
 }

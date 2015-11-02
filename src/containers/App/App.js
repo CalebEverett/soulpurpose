@@ -10,6 +10,12 @@ const ThemeManager = require('material-ui/lib/styles/theme-manager');
 const themeDecorator = require('material-ui/lib/styles/theme-decorator');
 const spTheme = require('../../theme/sptheme.js');
 
+const menuitems = [
+  {primaryText: 'Survey', value: '/survey'},
+  {primaryText: 'Widgets', value: '/widgets'},
+  {primaryText: 'Home', value: '/'}
+];
+
 import injectTapEventPlugin from 'react-tap-event-plugin';
 injectTapEventPlugin();
 
@@ -26,7 +32,8 @@ export default class App extends Component {
   };
 
   static contextTypes = {
-    store: PropTypes.object.isRequired
+    store: PropTypes.object.isRequired,
+    history: PropTypes.object.isRequired
   };
 
   componentWillReceiveProps(nextProps) {
@@ -61,7 +68,7 @@ export default class App extends Component {
       <div className={styles.app}>
         <DocumentMeta {...config.app}/>
         <div className={styles.appContent}>
-          <MaterialLeftNav/>
+          <MaterialLeftNav menuitems={menuitems}/>
           {this.props.children}
         </div>
         <Test/>

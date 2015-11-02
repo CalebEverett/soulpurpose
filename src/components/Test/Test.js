@@ -6,7 +6,7 @@ const Dialog = require('material-ui/lib/dialog');
 
 const Test = React.createClass({
 
-  _handleTouchTap() {
+  _handleTouchTap1() {
     this.refs.superSecretPasswordDialog.show();
   },
 
@@ -33,7 +33,7 @@ const Test = React.createClass({
         <h1>material-ui</h1>
         <h2>example project</h2>
 
-        <RaisedButton label="Super Secret Password" primary onTouchTap={this._handleTouchTap} />
+        <RaisedButton label="Super Secret Password" primary onTouchTap={this._handleTouchTap1} />
 
       </div>
     );

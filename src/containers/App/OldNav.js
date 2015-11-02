@@ -34,3 +34,5 @@
           <MenuItem primaryText="Survey" onTouchTap={() => history.pushState(null, '/survey')}>Goodbye</MenuItem>
           <MenuItem><Link to="/">Home</Link></MenuItem>
         </LeftNav>
+
+        this.history.pushState(null, this.value);
