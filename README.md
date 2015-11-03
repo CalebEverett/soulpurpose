@@ -1,9 +1,7 @@
-# React Redux Universal Hot Example
+# React Redux Universal Material
 
-[![build status](https://img.shields.io/travis/erikras/react-redux-universal-hot-example/master.svg?style=flat-square)](https://travis-ci.org/erikras/react-redux-universal-hot-example)
 [![react-redux-universal channel on discord](https://img.shields.io/badge/discord-react--redux--universal%40reactiflux-blue.svg)](https://discordapp.com/channels/102860784329052160/105739309289623552)
-[![Demo on Heroku](https://img.shields.io/badge/demo-heroku-lightgrey.png)](https://react-redux.herokuapp.com)
-[![Dependency Status](https://david-dm.org/erikras/react-redux-universal-hot-example.svg)](https://david-dm.org/erikras/react-redux-universal-hot-example)
+[![Dependency Status](https://david-dm.org/CalebEverett/react-redux-universal-material.svg)](https://david-dm.org/CalebEverett/react-redux-universal-material.svg)
 [![devDependency Status](https://david-dm.org/erikras/react-redux-universal-hot-example/dev-status.svg)](https://david-dm.org/erikras/react-redux-universal-hot-example#info=devDependencies)
 [![PayPal donate button](http://img.shields.io/paypal/donate.png?color=yellowgreen)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=E2LK57ZQ9YRMN)
 
@@ -11,7 +9,14 @@
 
 ## About
 
-This is a starter boiler plate app I've put together using the following technologies:
+This is a starter boiler plate app forked from the amazing [react-redux-universal-hot-example](https://github.com/erikras/react-redux-universal-hot-example.git) starter boiler plate app.
+
+## New Additions
+
+* Added in [material-ui](https://github.com/callemall/material-ui.git) with customizable theme. Hooked up LeftNav to work with routing state in redux store.
+* Added in [redux-responsive](https://github.com/aaivazis/redux-responsive.git) which puts breakpoints into the redux store. Hooked up LeftNav to remain docked at medium breakpoint.
+
+## Original Description
 
 * ~~Isomorphic~~ [Universal](https://medium.com/@mjackson/universal-javascript-4761051b7ae9) rendering
 * Both client and server make calls to load data from separate API server

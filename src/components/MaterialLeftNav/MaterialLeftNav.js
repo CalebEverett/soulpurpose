@@ -1,9 +1,9 @@
 /** In this file, we create a React component which incorporates components provided by material-ui */
 
 import React, { Component, PropTypes } from 'react';
-import LeftNav from 'material-ui/lib/left-nav';
-import MenuItem from 'material-ui/lib/menus/menu-item';
-import RaisedButton from 'material-ui/lib/raised-button';
+import LeftNav from 'material-ui/src/left-nav';
+import MenuItem from 'material-ui/src/menus/menu-item';
+import RaisedButton from 'material-ui/src/raised-button';
 
 export default class MaterialLeftNav extends Component {
   static propTypes = {
