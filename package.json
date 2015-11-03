@@ -1,14 +1,14 @@
 {
-  "name": "react-redux-universal-hot-example",
-  "description": "Example of an isomorphic (universal) webapp using react redux and hot reloading",
+  "name": "react-redux-universal-material",
+  "description": "Example of an isomorphic (universal) webapp using react redux and material-ui",
   "author": "Erik Rasmussen <rasmussenerik@gmail.com> (http://github.com/erikras)",
   "license": "MIT",
-  "version": "0.0.5",
+  "version": "0.0.1",
   "repository": {
     "type": "git",
-    "url": "https://github.com/erikras/react-redux-universal-hot-example"
+    "url": "https://github.com/CalebEverett/react-redux-universal-material"
   },
-  "homepage": "https://github.com/erikras/react-redux-universal-hot-example",
+  "homepage": "https://github.com/CalebEverett/react-redux-universal-material",
   "keywords": [
     "react",
     "isomorphic",
@@ -20,7 +20,9 @@
     "redux",
     "starter",
     "boilerplate",
-    "babel"
+    "babel",
+    "material-ui",
+    "responsive"
   ],
   "main": "bin/server.js",
   "scripts": {
