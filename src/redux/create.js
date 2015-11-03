@@ -1,6 +1,7 @@
 import { createStore as _createStore, applyMiddleware, compose } from 'redux';
 import createMiddleware from './middleware/clientMiddleware';
 import transitionMiddleware from './middleware/transitionMiddleware';
+import {addResponsiveHandlers} from 'redux-responsive';
 
 export default function createStore(reduxReactRouter, getRoutes, createHistory, client, data) {
   const middleware = [createMiddleware(client), transitionMiddleware];
@@ -29,5 +30,6 @@ export default function createStore(reduxReactRouter, getRoutes, createHistory, 
     });
   }
 
+  addResponsiveHandlers(store);
   return store;
 }
