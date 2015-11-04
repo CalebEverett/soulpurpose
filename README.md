@@ -2,8 +2,7 @@
 
 [![react-redux-universal channel on discord](https://img.shields.io/badge/discord-react--redux--universal%40reactiflux-blue.svg)](https://discordapp.com/channels/102860784329052160/105739309289623552)
 [![Dependency Status](https://david-dm.org/CalebEverett/react-redux-universal-material.svg)](https://david-dm.org/CalebEverett/react-redux-universal-material.svg)
-[![devDependency Status](https://david-dm.org/erikras/react-redux-universal-hot-example/dev-status.svg)](https://david-dm.org/erikras/react-redux-universal-hot-example#info=devDependencies)
-[![PayPal donate button](http://img.shields.io/paypal/donate.png?color=yellowgreen)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=E2LK57ZQ9YRMN)
+[![devDependency Status](https://david-dm.org/CalebEverett/react-redux-universal-material/dev-status.svg)](https://david-dm.org/erikras/react-redux-universal-hot-example#info=devDependencies)
 
 ---
 
