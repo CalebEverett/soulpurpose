@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
-import { IndexLink } from 'react-router';
+import { IndexLink, Link } from 'react-router';
 import DocumentMeta from 'react-document-meta';
 import { isLoaded as isInfoLoaded, load as loadInfo } from 'redux/modules/info';
 import { isLoaded as isAuthLoaded, load as loadAuth, logout } from 'redux/modules/auth';
@@ -68,6 +68,14 @@ export default class App extends Component {
       this.setState({navOpen: !this.state.navOpen});
     };
 
+    const burgerIcon = (
+      <div className={styles.burger} onClick={handleNavClick}>
+        <span className={styles[navOpen ? 'barTopOpen' : 'barTop']} />
+        <span className={styles[navOpen ? 'barMiddleOpen' : 'barMiddle']} />
+        <span className={styles[navOpen ? 'barBottomOpen' : 'barBottom']} />
+      </div>
+    );
+
     return (
       <div className={styles.app}>
         <DocumentMeta {...config.app}/>
@@ -79,18 +87,16 @@ export default class App extends Component {
               <span>React Redux Example</span>
               </IndexLink>
             </li>
-            <li className={styles.navItem}><a href="#">Link 1</a></li>
+            <li className={styles.navItem} onClick={handleNavClick}><Link to="/survey">Survey</Link></li>
             <li className={styles.navItem}><a href="#">Link 2</a></li>
             <li className={styles.navItem}><a href="#">Link 3</a></li>
             <li className={styles.navItem}><a href="#">Link 4</a></li>
           </ul>
         </nav>
         <div className={styles['pageWrap' + (navOpen ? 'Open' : '')]}>
-          <div className={styles.burger} onClick={handleNavClick}>
-            <span className={styles[navOpen ? 'barTopOpen' : 'barTop']} />
-            <span className={styles[navOpen ? 'barMiddleOpen' : 'barMiddle']} />
-            <span className={styles[navOpen ? 'barBottomOpen' : 'barBottom']} />
-          </div>
+          <header className={styles.navBar}>
+            {burgerIcon}
+          </header>
           <div>
             {this.props.children}
           </div>

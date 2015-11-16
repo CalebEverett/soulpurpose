@@ -8,7 +8,7 @@
     top: 5px;
     left: 5px;
     display: inline-block;
-    background: #2d2d2d url('../Home/logo.png') no-repeat center center;
+    background: #2d2d2d url('../Home/logo.svg') no-repeat center center;
     width: $size;
     height: $size;
     background-size: 80%;
@@ -20,6 +20,13 @@
 /*Navigation menu styles*/
 $drawer-width: 250px;
 $burger-height: 18px;
+
+.navBar{
+  height: 64px;
+  width: 100%;
+  background-color: red;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.26);
+}
 
 .nav {
   position: fixed;
@@ -82,6 +89,7 @@ $burger-height: 18px;
   left: 2em;
   width: $burger-height + 2px;
   height: $burger-height;
+  vertical-align: middle;
 }
 
 .barCommon {
