@@ -8,6 +8,8 @@ import { InfoBar } from 'components';
 import { pushState } from 'redux-router';
 import connectData from 'helpers/connectData';
 import config from '../../config';
+import injectTapEventPlugin from 'react-tap-event-plugin';
+injectTapEventPlugin();
 
 function fetchData(getState, dispatch) {
   const promises = [];
@@ -60,35 +62,36 @@ export default class App extends Component {
   render() {
     const {user} = this.props;
     const styles = require('./App.scss');
-    const pageWrapStyle = this.state.navOpen ? styles.page__wrap__open : styles.page__wrap;
+    const navOpen = this.state.navOpen;
 
     const handleNavClick = () => {
       this.setState({navOpen: !this.state.navOpen});
-    }
+    };
 
     return (
       <div className={styles.app}>
         <DocumentMeta {...config.app}/>
-        <nav id="nav" className={styles.nav}>
-          <ul className={styles.nav__item}>
-            <li className={styles.nav__item}>
+        <nav className={styles['nav' + (navOpen ? 'Open' : '')]}>
+          <ul className={styles.navList}>
+            <li className={styles.navItem}>
               <IndexLink to="/" activeStyle={{color: '#33e0ff'}}>
                 <div className={styles.brand}/>
               <span>React Redux Example</span>
               </IndexLink>
             </li>
-            <li className={styles.nav__item}><a href="#">Link 1</a></li>
-            <li className={styles.nav__item}><a href="#">Link 2</a></li>
-            <li className={styles.nav__item}><a href="#">Link 3</a></li>
-            <li className={styles.nav__item}><a href="#">Link 4</a></li>
+            <li className={styles.navItem}><a href="#">Link 1</a></li>
+            <li className={styles.navItem}><a href="#">Link 2</a></li>
+            <li className={styles.navItem}><a href="#">Link 3</a></li>
+            <li className={styles.navItem}><a href="#">Link 4</a></li>
           </ul>
         </nav>
-        <div id="page-wrap" className={pageWrapStyle}>
-          <div id="nav-toggle" className={styles.nav__toggle} onClick={handleNavClick}>
-            <div className={styles.nav__toggle__span}>
-            </div>
+        <div className={styles['pageWrap' + (navOpen ? 'Open' : '')]}>
+          <div className={styles.burger} onClick={handleNavClick}>
+            <span className={styles[navOpen ? 'barTopOpen' : 'barTop']} />
+            <span className={styles[navOpen ? 'barMiddleOpen' : 'barMiddle']} />
+            <span className={styles[navOpen ? 'barBottomOpen' : 'barBottom']} />
           </div>
-          <div className={styles.appContent}>
+          <div>
             {this.props.children}
           </div>
           <InfoBar/>

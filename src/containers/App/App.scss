@@ -1,3 +1,6 @@
+@import "normalize.css/normalize.css";
+@import "../../theme/variables.scss";
+
 .app {
   .brand {
     position: absolute;
@@ -13,37 +16,37 @@
     border-radius: $size / 2;
   }
 }
-.appContent {
-  margin: 50px 0; // for fixed navbar
-}
 
 /*Navigation menu styles*/
+$drawer-width: 250px;
+$burger-height: 18px;
+
 .nav {
   position: fixed;
   top: 0;
-  width: 25%;
+  width: $drawer-width;
   height: 100%;
   background-color: #000000;
   transform: translate(-100%, 0);
   transition: all 500ms ease-in-out;
   overflow-y: auto;
-
-  &.nav__open {
-    transform: translate(0,0);
-  }
 }
 
-.nav__list {
+.navOpen {
+  composes: nav;
+  transform: translate(0,0);
+}
+
+.navList {
   padding: 0;
   margin: 0;
 }
 
-.nav__item {
+.navItem {
   display: block;
   padding: 0;
   margin: 0;
-  font-size: 2em;
-  border-bottom: 1px solid #333333;
+  font-size: $font-size-base;
 
   a, a:visited {
     display: block;
@@ -58,74 +61,70 @@
   }
 }
 
-.page__wrap {
+.pageWrap {
   width: 100%;
   height: 100%;
   transform: translate(0, 0);
   transition: all 500ms ease-in-out;
 }
 
-.page__wrap__open {
-  composes: page__wrap;
-  transform: translate(75%, 0);
+.pageWrapOpen {
+  composes: pageWrap;
+  transform: translate($drawer-width, 0);
   overflow: hidden;
 }
 
-.nav__toggle {
+/*Animated Burger Icon*/
+.burger {
+  cursor: pointer;
   position: absolute;
   top: 2em;
   left: 2em;
-  width: 32px;
-  height: 32px;
-  box-sizing: border-box;
-  transition: all 500ms ease-in-out;
-  cursor: pointer;
+  width: $burger-height + 2px;
+  height: $burger-height;
 }
 
-.nav__toggle__span {
+.barCommon {
+  backface-visibility: hidden;
   position: absolute;
-  top: 14px;
-  display: block;
-  width: 32px;
-  height: 4px;
-  transition: all 500ms ease-in-out;
-  background-color: #000000;
-  content: "";
-
-  .nav__open & {
-    background: transparent;
-    transition: all 500ms ease-in-out;
-  }
+  left: 0;
+  border-top: 3px solid white;
+  width: 100%;
+  transition: 0.55s;
 }
 
-.nav__toggle__span:before {
-  position: absolute;
-  top: -10px;
-  display: block;
-  width: 32px;
-  height: 4px;
-  transition: all 500ms ease-in-out;
-  background-color: #000000;
-  content: "";
-
-  .nav__open & {
-    top: 0;
-    transform: rotate(45deg);
-  }
+.barTop {
+  composes: barCommon;
+  top: 0;
 }
 
-.nav__toggle__span:after {
-  position: absolute;
-  bottom: -10px;
-  display: block;
-  width: 32px;
-  height: 4px;
-  transition: all 500ms ease-in-out;
-  background-color: #000000;
-  content: "";
+.barMiddle {
+  composes: barCommon;
+  top: $burger-height / 2;
+}
 
-  .nav__open & {
-    top: 0;
-    transform: rotate(-45deg);
-  }
+.barBottom {
+  composes: barCommon;
+  top: $burger-height;
+}
+
+.barTopOpen {
+  composes: barTop;
+  backface-visibility: hidden;
+  top: $burger-height / 3;
+  transform: rotate(50deg);
+  transition: 0.55s 0.5s;
+}
+
+.barMiddleOpen {
+  composes: barMiddle;
+  opacity: 0;
+}
+
+.barBottomOpen {
+  composes: barBottom;
+  backface-visibility: hidden;
+  top: $burger-height / 3;
+  transform: rotate(-410deg);
+  transition: 0.55s 0.5s;
 }
