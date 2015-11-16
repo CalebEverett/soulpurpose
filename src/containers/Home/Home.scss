@@ -6,20 +6,21 @@
   }
 }
 .masthead {
-  padding: 40px 20px;
-  color: white;
+  background-image: url('./nikohero.jpg');
+  background-size: cover;
+  background-position: center;
+  color: $canvasColor;
   text-align: center;
+  height: 800px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
   .logo {
-    $size: 200px;
-    margin: auto;
-    height: $size;
-    width: $size;
-    border-radius: $size / 2;
-    border: 1px solid $cyan;
-    box-shadow: inset 0 0 10px $cyan;
-    vertical-align: middle;
+    width: 250px;
+    position: absolute;
+    left: 1em;
+    top: 1em;
     p {
-      line-height: $size;
       margin: 0px;
     }
     img {
@@ -28,11 +29,12 @@
     }
   }
   h1 {
-    color: $cyan;
+    color: lighten($accent1Color, 10%);
     font-size: 4em;
+    margin-top: 0;
   }
   h2 {
-    color: #ddd;
+    color: $primary2Color;
     font-size: 2em;
     margin: 20px;
   }
@@ -43,9 +45,9 @@
     margin: 10px;
   }
   .humility {
-    color: $humility;
+    color: $accent2Color;
     a {
-      color: $humility;
+      color: $accent2Color;
     }
   }
   .github {

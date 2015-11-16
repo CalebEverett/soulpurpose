@@ -18,25 +18,29 @@
 }
 
 /*Navigation menu styles*/
+$navBar-height: 64px;
 $drawer-width: 250px;
 $burger-height: 18px;
 
 .navBar{
-  height: 64px;
+  height: $navBar-height;
   width: 100%;
-  background-color: red;
+  background-color: $primary1Color;
   box-shadow: 0 2px 5px rgba(0,0,0,0.26);
+  z-index: 2;
 }
 
 .nav {
+  padding-top: $navBar-height;
   position: fixed;
   top: 0;
   width: $drawer-width;
   height: 100%;
-  background-color: #000000;
+  background-color: $canvasColor;
   transform: translate(-100%, 0);
   transition: all 500ms ease-in-out;
   overflow-y: auto;
+  z-index: 4;
 }
 
 .navOpen {
@@ -58,7 +62,7 @@ $burger-height: 18px;
   a, a:visited {
     display: block;
     padding: 1em;
-    color: white;
+    color: $textColor;
     text-decoration: none;
   }
 
@@ -77,19 +81,39 @@ $burger-height: 18px;
 
 .pageWrapOpen {
   composes: pageWrap;
-  transform: translate($drawer-width, 0);
   overflow: hidden;
+}
+
+.pageWrapOpen:before {
+  content: "";
+  display: block;
+  position: fixed; /* could also be absolute */
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 3;
+  background-color: rgba(0,0,0,0.5);
+  transition: all 500ms ease-in-out;
 }
 
 /*Animated Burger Icon*/
 .burger {
   cursor: pointer;
   position: absolute;
-  top: 2em;
+  top: ($navBar-height - $burger-height) / 2;
   left: 2em;
   width: $burger-height + 2px;
   height: $burger-height;
-  vertical-align: middle;
+  transform: translate(0, 0);
+  transition: all 500ms ease-in-out;
+  z-index: 4;
+}
+
+.burgerOpen {
+  composes: burger;
+  transform: translate($drawer-width * 0.7, 0);
+  transition: all 500ms ease-in-out;
 }
 
 .barCommon {
@@ -120,8 +144,9 @@ $burger-height: 18px;
   composes: barTop;
   backface-visibility: hidden;
   top: $burger-height / 3;
+  border-top: 3px solid black;
   transform: rotate(50deg);
-  transition: 0.55s 0.5s;
+  transition: all 0.55s 0.5s;
 }
 
 .barMiddleOpen {
@@ -133,6 +158,7 @@ $burger-height: 18px;
   composes: barBottom;
   backface-visibility: hidden;
   top: $burger-height / 3;
+  border-top: 3px solid black;
   transform: rotate(-410deg);
-  transition: 0.55s 0.5s;
+  transition: all 0.55s 0.5s;
 }

@@ -60,7 +60,6 @@ export default class App extends Component {
   }
 
   render() {
-    const {user} = this.props;
     const styles = require('./App.scss');
     const navOpen = this.state.navOpen;
 
@@ -69,7 +68,7 @@ export default class App extends Component {
     };
 
     const burgerIcon = (
-      <div className={styles.burger} onClick={handleNavClick}>
+      <div className={styles['burger' + (navOpen ? 'Open' : '')]} onClick={handleNavClick}>
         <span className={styles[navOpen ? 'barTopOpen' : 'barTop']} />
         <span className={styles[navOpen ? 'barMiddleOpen' : 'barMiddle']} />
         <span className={styles[navOpen ? 'barBottomOpen' : 'barBottom']} />
@@ -81,22 +80,17 @@ export default class App extends Component {
         <DocumentMeta {...config.app}/>
         <nav className={styles['nav' + (navOpen ? 'Open' : '')]}>
           <ul className={styles.navList}>
-            <li className={styles.navItem}>
-              <IndexLink to="/" activeStyle={{color: '#33e0ff'}}>
-                <div className={styles.brand}/>
-              <span>React Redux Example</span>
-              </IndexLink>
-            </li>
+            <li className={styles.navItem} onClick={handleNavClick}><IndexLink to="/" >Home</IndexLink></li>
             <li className={styles.navItem} onClick={handleNavClick}><Link to="/survey">Survey</Link></li>
             <li className={styles.navItem}><a href="#">Link 2</a></li>
             <li className={styles.navItem}><a href="#">Link 3</a></li>
             <li className={styles.navItem}><a href="#">Link 4</a></li>
           </ul>
         </nav>
-        <div className={styles['pageWrap' + (navOpen ? 'Open' : '')]}>
-          <header className={styles.navBar}>
-            {burgerIcon}
-          </header>
+        <header className={styles.navBar}>
+          {burgerIcon}
+        </header>
+        <div className={styles['pageWrap' + (navOpen ? 'Open' : '')]} onClick={navOpen ? handleNavClick : ''}>
           <div>
             {this.props.children}
           </div>
