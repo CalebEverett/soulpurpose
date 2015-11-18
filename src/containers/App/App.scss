@@ -1,29 +1,27 @@
-@import "normalize.css/normalize.css";
 @import "../../theme/variables.scss";
 
 .app {
+
   .brand {
-    position: absolute;
+    background: url('../Home/logo.svg') no-repeat center center;
     $size: 40px;
-    top: 5px;
-    left: 5px;
-    display: inline-block;
-    background: #2d2d2d url('../Home/logo.svg') no-repeat center center;
     width: $size;
     height: $size;
-    background-size: 80%;
-    margin: 0 10px 0 0;
-    border-radius: $size / 2;
+    background: url('../Home/logo.svg') no-repeat center center;
+    z-index: 5;
+
   }
 }
 
 /*Navigation menu styles*/
-$navBar-height: 64px;
-$drawer-width: 250px;
-$burger-height: 18px;
+$navBar-height: 3.5em;
+$drawer-width: 18em;
+$burger-height: 1em;
 
 .navBar{
+  display: flex;
   height: $navBar-height;
+  position: fixed;
   width: 100%;
   background-color: $primary1Color;
   box-shadow: 0 2px 5px rgba(0,0,0,0.26);
@@ -31,8 +29,8 @@ $burger-height: 18px;
 }
 
 .nav {
+  position: absolute;
   padding-top: $navBar-height;
-  position: fixed;
   top: 0;
   width: $drawer-width;
   height: 100%;
@@ -103,7 +101,7 @@ $burger-height: 18px;
   position: absolute;
   top: ($navBar-height - $burger-height) / 2;
   left: 2em;
-  width: $burger-height + 2px;
+  width: $burger-height * 1.2;
   height: $burger-height;
   transform: translate(0, 0);
   transition: all 500ms ease-in-out;
