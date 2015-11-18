@@ -54,7 +54,7 @@ export default class App extends Component {
     }
   }
 
-  handleLogout(event) {
+  handleLogout = (event) => {
     event.preventDefault();
     this.props.logout();
   }
@@ -95,7 +95,6 @@ export default class App extends Component {
             {this.props.children}
           </div>
           <InfoBar/>
-
           <div className="well text-center">
             Have questions? Ask for help <a
             href="https://github.com/erikras/react-redux-universal-hot-example/issues"
