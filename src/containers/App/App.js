@@ -4,7 +4,6 @@ import { IndexLink, Link } from 'react-router';
 import DocumentMeta from 'react-document-meta';
 import { isLoaded as isInfoLoaded, load as loadInfo } from 'redux/modules/info';
 import { isLoaded as isAuthLoaded, load as loadAuth, logout } from 'redux/modules/auth';
-import { InfoBar } from 'components';
 import { pushState } from 'redux-router';
 import connectData from 'helpers/connectData';
 import config from '../../config';
@@ -78,28 +77,26 @@ export default class App extends Component {
     return (
       <div className={styles.app}>
         <DocumentMeta {...config.app}/>
-        <nav className={styles['nav' + (navOpen ? 'Open' : '')]}>
-          <ul className={styles.navList}>
-            <li className={styles.navItem} onClick={handleNavClick}><IndexLink to="/" >Home</IndexLink></li>
-            <li className={styles.navItem} onClick={handleNavClick}><Link to="/survey">Survey</Link></li>
-            <li className={styles.navItem}><a href="#">Link 2</a></li>
-            <li className={styles.navItem}><a href="#">Link 3</a></li>
-            <li className={styles.navItem}><a href="#">Link 4</a></li>
-          </ul>
-        </nav>
         <header className={styles.navBar}>
           {burgerIcon}
+          <nav className={styles['nav' + (navOpen ? 'Open' : '')]} >
+            <ul className={styles.navList}>
+              <li className={styles.navItem} onClick={handleNavClick}><IndexLink to="/" >Home</IndexLink></li>
+              <li className={styles.navItem} onClick={handleNavClick}><Link to="/survey">Survey</Link></li>
+              <li className={styles.navItem}><a href="#">Link 2</a></li>
+              <li className={styles.navItem}><a href="#">Link 3</a></li>
+              <li className={styles.navItem}><a href="#">Link 4</a></li>
+            </ul>
+          </nav>
         </header>
         <div className={styles['pageWrap' + (navOpen ? 'Open' : '')]} onClick={navOpen ? handleNavClick : ''}>
           <div>
             {this.props.children}
           </div>
-          <InfoBar/>
-          <div className="well text-center">
-            Have questions? Ask for help <a
-            href="https://github.com/erikras/react-redux-universal-hot-example/issues"
-            target="_blank">on Github</a> or in the <a
-            href="https://discordapp.com/channels/102860784329052160/105739309289623552" target="_blank">#react-redux-universal</a> Discord channel.
+          <div className={styles.footer}>
+            <div className={styles.footerContainer}>
+              <span className="fa fa-facebook-square fa-2x" /><span className="fa fa-twitter-square fa-2x" /><span className="fa fa-linkedin-square fa-2x" />
+            </div>
           </div>
         </div>
       </div>

@@ -20,17 +20,17 @@ module.exports = Object.assign({
     meta: {
       charSet: 'utf-8',
       property: {
-        'og:site_name': 'React Redux Example',
-        'og:image': 'https://react-redux.herokuapp.com/logo.jpg',
+        'og:site_name': 'Niko Evertt',
+        'og:image': 'https://nikoeverett.com/logo.jpg',
         'og:locale': 'en_US',
-        'og:title': 'React Redux Example',
-        'og:description': 'All the modern best practices in one example.',
+        'og:title': 'Niko Everett',
+        'og:description': 'On a Mission to Inspire!',
         'twitter:card': 'summary',
-        'twitter:site': '@erikras',
-        'twitter:creator': '@erikras',
-        'twitter:title': 'React Redux Example',
-        'twitter:description': 'All the modern best practices in one example.',
-        'twitter:image': 'https://react-redux.herokuapp.com/logo.jpg',
+        'twitter:site': '@nikoeverett',
+        'twitter:creator': '@nikoeverett',
+        'twitter:title': 'Niko Everett',
+        'twitter:description': 'An online resource for inspiration and motivation',
+        'twitter:image': 'https://nikoeverett.com/logo.jpg',
         'twitter:image:width': '200',
         'twitter:image:height': '200'
       }

@@ -6,30 +6,22 @@
   }
 }
 .masthead {
-  background-image: url('./nikohero.jpg');
+  background-image: url('./banner1.jpg');
   background-size: cover;
   background-position: center;
   color: $canvasColor;
   text-align: center;
-  height: 100vh;
+  height: 50vh;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
   .logo {
     width: 250px;
-    position: absolute;
     left: 1em;
     top: 1em;
-    p {
-      margin: 0px;
-    }
-    img {
-      width: 75%;
-      margin: auto;
-    }
   }
   h1 {
-    color: lighten($accent1Color, 10%);
+    color: lighten($accent1Color, 0%);
     font-size: 4em;
     margin-top: 0;
   }
@@ -41,21 +33,33 @@
   a {
     color: #ddd;
   }
-  p {
-    margin: 10px;
-  }
-  .humility {
-    color: $accent2Color;
-    a {
-      color: $accent2Color;
-    }
-  }
-  .github {
-    font-size: 1.5em;
-  }
 }
 
 .counterContainer {
   text-align: center;
   margin: 20px;
+}
+
+.inspirationSection {
+  composes: container;
+  background-color: lighten($accent1Color, 15%);
+  min-height: 50vh;
+  h3 {
+    max-width: 35em;
+    margin: auto auto;
+    line-height: 1.5em;
+    text-align: center;
+    color: darken($primary1Color, 20%);
+  }
+}
+
+.featureSection {
+  composes: container;
+  background-color: lighten($primary2Color, 25%);
+  display: flex;
+}
+
+.feature {
+  flex: initial;
+  width: auto;
 }

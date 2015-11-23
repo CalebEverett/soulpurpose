@@ -1,5 +1,3 @@
-@import "./gridless.scss";
-
 /**
  *  Define scss variables here.
  *
@@ -8,26 +6,32 @@
  *
  */
 
-// Custom Colors
-$primary1Color: #9C27B0;
-$primary2Color: #7B1FA2;
-$primary3Color: #E1BEE7;
-$accent1Color: #E91E63;
-$accent2Color: #F5F5F5;
-$accent3Color: #9E9E9E;
-$textColor: black;
+//Fonts
+@import url(https://fonts.googleapis.com/css?family=Lora:400,700|Josefin+Sans);
+
+
+
+// Colors
+$primary1Color: #FF4890; //pink
+$primary2Color: #00DEFF; //blue
+$primary3Color: #DED0D4; //warm grey
+$accent1Color: #FFE19B;  //yellow
+$accent2Color: #5BFFA3;  //green
+$accent3Color: #9E9E9E;  //grey
+$textColor: #222;
 $alternateTextColor: white;
 $canvasColor: white;
 $borderColor: #E0E0E0;
 
-// Bootstrap Variables
-$brand-secondary: #e25139;
-$brand-success: #5cb85c;
-$brand-warning: #f0ad4e;
-$brand-danger: #d9534f;
-$brand-info: #5bc0de;
+// Navigation Bar Variables
+$navBar-height: 3.5em;
 
-$text-color: #333;
+@import "./gridless.scss";
+@import "./mq.scss";
 
-$font-size-base: 1.25em;
-$font-family-sans-serif: "Helvetica Neue", Helvetica, sans-serif;
+.container {
+	padding: 1em 1em;
+	@include mq($from: tablet) {
+		padding: 2em 2em;
+	}
+}
