@@ -1,5 +1,3 @@
-require('../server.babel'); // babel registration (runtime transpilation for node)
-
 import express from 'express';
 import session from 'express-session';
 import bodyParser from 'body-parser';
@@ -36,7 +34,11 @@ app.use((req, res) => {
   if (action) {
     action(req, params)
       .then((result) => {
-        res.json(result);
+        if (result instanceof Function) {
+          result(res);
+        } else {
+          res.json(result);
+        }
       }, (reason) => {
         if (reason && reason.redirect) {
           res.redirect(reason.redirect);
