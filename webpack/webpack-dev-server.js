@@ -9,7 +9,7 @@ var host = config.host || 'localhost';
 var port = (config.port + 1) || 3001;
 var serverOptions = {
   contentBase: 'http://' + host + ':' + port,
-  quiet: true,
+  quiet: false,
   noInfo: true,
   hot: true,
   inline: true,

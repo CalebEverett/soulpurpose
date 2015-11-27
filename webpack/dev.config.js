@@ -5,6 +5,7 @@ var fs = require('fs');
 var path = require('path');
 var webpack = require('webpack');
 var WebpackIsomorphicTools = require('webpack-isomorphic-tools');
+var SvgStore = require('webpack-svgstore-plugin');
 var assetsPath = path.resolve(__dirname, '../static/dist');
 var host = (process.env.HOST || 'localhost');
 var port = parseInt(process.env.PORT) + 1 || 3001;
@@ -93,6 +94,13 @@ module.exports = {
       __DEVELOPMENT__: true,
       __DEVTOOLS__: false  // <-------- DISABLE redux-devtools HERE
     }),
-    webpackIsomorphicToolsPlugin.development()
+    webpackIsomorphicToolsPlugin.development(),
+    new SvgStore(path.join('./static', 'svg', '**/*.svg'), path.join(assetsPath, 'svg'), {
+      name: '[hash].sprite.svg',
+      chunk: 'app',
+      svgoOptions: {
+        // options for svgo, optional
+      }
+    })
   ]
 };

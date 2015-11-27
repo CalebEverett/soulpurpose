@@ -61,6 +61,7 @@ export default class App extends Component {
   render() {
     const styles = require('./App.scss');
     const navOpen = this.state.navOpen;
+    const facebookIcon = require('./facebook.svg');
 
     const handleNavClick = () => {
       this.setState({navOpen: !this.state.navOpen});
@@ -96,6 +97,7 @@ export default class App extends Component {
           <div className={styles.footer}>
             <div className={styles.footerContainer}>
               <span className="fa fa-facebook-square fa-2x" /><span className="fa fa-twitter-square fa-2x" /><span className="fa fa-linkedin-square fa-2x" />
+              <svg src={facebookIcon} />
             </div>
           </div>
         </div>
