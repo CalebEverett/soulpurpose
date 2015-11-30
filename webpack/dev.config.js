@@ -94,13 +94,6 @@ module.exports = {
       __DEVELOPMENT__: true,
       __DEVTOOLS__: false  // <-------- DISABLE redux-devtools HERE
     }),
-    webpackIsomorphicToolsPlugin.development(),
-    new SvgStore(path.join('./static', 'svg', '**/*.svg'), path.join(assetsPath, 'svg'), {
-      name: '[hash].sprite.svg',
-      chunk: 'app',
-      svgoOptions: {
-        // options for svgo, optional
-      }
-    })
+    webpackIsomorphicToolsPlugin.development()
   ]
 };

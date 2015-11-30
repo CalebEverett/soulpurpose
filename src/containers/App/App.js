@@ -7,6 +7,14 @@ import { isLoaded as isAuthLoaded, load as loadAuth, logout } from 'redux/module
 import { pushState } from 'redux-router';
 import connectData from 'helpers/connectData';
 import config from '../../config';
+import {
+  FaHome,
+  FaNewspaperO,
+  FaWrench,
+  FaUser,
+  FaFacebookSquare,
+  FaTwitterSquare,
+  FaLinkedinSquare} from 'react-icons/lib/fa';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 injectTapEventPlugin();
 
@@ -61,7 +69,6 @@ export default class App extends Component {
   render() {
     const styles = require('./App.scss');
     const navOpen = this.state.navOpen;
-    const facebookIcon = require('./facebook.svg');
 
     const handleNavClick = () => {
       this.setState({navOpen: !this.state.navOpen});
@@ -82,10 +89,10 @@ export default class App extends Component {
           {burgerIcon}
           <nav className={styles['nav' + (navOpen ? 'Open' : '')]} >
             <ul className={styles.navList}>
-              <li className={styles.navItem} onClick={handleNavClick}><IndexLink to="/" >Home</IndexLink></li>
-              <li className={styles.navItem} onClick={handleNavClick}><Link to="/survey">Survey</Link></li>
-              <li className={styles.navItem}><a href="#">Link 2</a></li>
-              <li className={styles.navItem}><a href="#">Link 3</a></li>
+              <li className={styles.navItem} ><IndexLink to="/" activeClassName={styles.active} onClick={handleNavClick}><FaHome />Home</IndexLink></li>
+              <li className={styles.navItem} ><Link to="/survey" activeClassName={styles.active} onClick={handleNavClick}><FaNewspaperO />Blog</Link></li>
+              <li className={styles.navItem} ><Link to="/widgets" activeClassName={styles.active} onClick={handleNavClick}><FaWrench />Tools</Link></li>
+              <li className={styles.navItem}><a href="#"><FaUser />About</a></li>
               <li className={styles.navItem}><a href="#">Link 4</a></li>
             </ul>
           </nav>
@@ -94,10 +101,11 @@ export default class App extends Component {
           <div>
             {this.props.children}
           </div>
-          <div className={styles.footer}>
+         <div className={styles.footer}>
             <div className={styles.footerContainer}>
-              <span className="fa fa-facebook-square fa-2x" /><span className="fa fa-twitter-square fa-2x" /><span className="fa fa-linkedin-square fa-2x" />
-              <svg src={facebookIcon} />
+              <a href="https://www.facebook.com/niko.everett" className="left"><FaFacebookSquare /></a>
+              <a href="https://twitter.com/nikoeverett1" className="center"><FaTwitterSquare /></a>
+              <a href="https://www.linkedin.com/in/nikoeverett" className="right"><FaLinkedinSquare /></a>
             </div>
           </div>
         </div>
