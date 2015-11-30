@@ -50,8 +50,13 @@ $burger-height: 0.8em;
 }
 
 .active {
-  color: $primary1Color!important;
+  font-weight: bold!important;
   border-style: none;
+  background-color: lighten($accent3Color, 30%);
+  svg {
+    height: 1.15em!important;
+    width: 1.15em!important;
+  }
 }
 
 .navItem {
@@ -59,11 +64,13 @@ $burger-height: 0.8em;
   font-family: 'Josefin Sans', sans-serif;
   font-size: 1.25em;
   padding-left: 1em;
+  margin-left: -1em;
   margin: 0.5 0;
 
   a, a:visited {
     display: flex;
     height: 3em;
+    width: content;
     align-items: center;
     color: $textColor;
     text-decoration: none;
@@ -77,13 +84,9 @@ $burger-height: 0.8em;
       position: relative;
     }
     &:hover, &:focus{
-      font-weight: bold;
+      color: $primary1Color;
       border-style: none;
       outline-style: none;
-      svg {
-        height: 1.15em;
-        width: 1.15em;
-      }
     }
   }
 }
@@ -128,6 +131,14 @@ $burger-height: 0.8em;
 }
 
 /*Animated Burger Icon*/
+.navIcon {
+  cursor: pointer;
+  position: absolute;
+  top: ($navBar-height - $burger-height) / 2;
+  left: 2em;
+  z-index: 4;
+}
+
 .burger {
   cursor: pointer;
   position: absolute;
@@ -150,7 +161,7 @@ $burger-height: 0.8em;
   backface-visibility: hidden;
   position: absolute;
   left: 0;
-  border-top: 2px solid white;
+  border-top: 2px solid $primary1Color;
   width: 100%;
   transition: 0.55s;
 }
@@ -174,7 +185,7 @@ $burger-height: 0.8em;
   composes: barTop;
   backface-visibility: hidden;
   top: $burger-height / 3;
-  border-top: 2px solid black;
+  border-top: 2px solid $primary1Color;
   transform: rotate(50deg);
   transition: all 0.55s 0.5s;
 }
@@ -188,7 +199,7 @@ $burger-height: 0.8em;
   composes: barBottom;
   backface-visibility: hidden;
   top: $burger-height / 3;
-  border-top: 2px solid $textColor;
+  border-top: 2px solid $primary1Color;
   transform: rotate(-410deg);
   transition: all 0.55s 0.5s;
 }
@@ -221,7 +232,6 @@ $burger-height: 0.8em;
       fill: currentColor;
       height: 2em;
       width: 2em;
-      position: relative;
       &:hover {
         height: 2.3em;
         width: 2.3em;

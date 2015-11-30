@@ -93,7 +93,6 @@ export default class App extends Component {
               <li className={styles.navItem} ><Link to="/survey" activeClassName={styles.active} onClick={handleNavClick}><FaNewspaperO />Blog</Link></li>
               <li className={styles.navItem} ><Link to="/widgets" activeClassName={styles.active} onClick={handleNavClick}><FaWrench />Tools</Link></li>
               <li className={styles.navItem}><a href="#"><FaUser />About</a></li>
-              <li className={styles.navItem}><a href="#">Link 4</a></li>
             </ul>
           </nav>
         </header>

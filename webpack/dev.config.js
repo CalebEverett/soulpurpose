@@ -84,6 +84,8 @@ module.exports = {
     ],
     extensions: ['', '.json', '.js']
   },
+  profile: '--json',
+  cache: false,
   plugins: [
     // hot reload
     new webpack.HotModuleReplacementPlugin(),

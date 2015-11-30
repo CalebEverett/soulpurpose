@@ -164,8 +164,7 @@
     "style-loader": "^0.13.0",
     "webpack": "^1.12.9",
     "webpack-dev-middleware": "^1.4.0",
-    "webpack-hot-middleware": "^2.5.0",
-    "webpack-svgstore-plugin": "^2.0.6"
+    "webpack-hot-middleware": "^2.5.0"
   },
   "engines": {
     "node": "4.1.1"
