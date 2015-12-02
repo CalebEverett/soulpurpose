@@ -7,14 +7,13 @@ import { isLoaded as isAuthLoaded, load as loadAuth, logout } from 'redux/module
 import { pushState } from 'redux-router';
 import connectData from 'helpers/connectData';
 import config from '../../config';
-import {
-  FaHome,
-  FaNewspaperO,
-  FaWrench,
-  FaUser,
-  FaFacebookSquare,
-  FaTwitterSquare,
-  FaLinkedinSquare} from 'react-icons/lib/fa';
+import FaHome from 'react-icons/lib/fa/home';
+import FaNewspaperO from 'react-icons/lib/fa/newspaper-o';
+import FaWrench from 'react-icons/lib/fa/wrench';
+import FaUser from 'react-icons/lib/fa/user';
+import FaFacebookSquare from 'react-icons/lib/fa/facebook-square';
+import FaTwitterSquare from 'react-icons/lib/fa/twitter-square';
+import FaLinkedinSquare from 'react-icons/lib/fa/linkedin-square';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 injectTapEventPlugin();
 

@@ -65,7 +65,7 @@ $mq-static-breakpoint: desktop !default;
 /// to this list, ordered by width, e.g. (mobile, tablet, desktop).
 ///
 /// @type map
-$mq-show-breakpoints: () !default;
+$mq-show-breakpoints: (mobile, tablet, desktop, wide) !default;
 
 /// Customize the media type (e.g. `@media screen` or `@media print`)
 /// By default sass-mq uses an "all" media type (`@media all and …`)
