@@ -1,39 +1,61 @@
 @import "../../theme/variables.scss";
 
-.home {
-  dd {
-    margin-bottom: 15px;
-  }
-}
-.masthead {
-  background-image: url('./banner1.jpg');
+$mastheadHeight: 63vh;
+
+.mastheadContainer {
+  background-image: url('./niko.jpg');
   background-size: cover;
   background-position: center;
-  color: $canvasColor;
-  text-align: center;
-  height: 50vh;
+  height: $mastheadHeight;
   display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  .logo {
-    width: 250px;
-    left: 1em;
-    top: 1em;
-  }
+  justify-content: center;
+  align-items: flex-end;
+  align-content: stretch;
+  position: relative;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.videoElements {
+  position: absolute;
+  bottom: 50%;
+  right: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  overflow: hidden;
+  transform: translate(-50%, -50%);
+}
+
+.mastheadVideo {
+  composes: videoElements;
+  z-index: 1
+}
+
+.overlay {
+  composes: videoElements;
+  width: 100%;
+  background-color: rgba(0,0,0,0.4);
+  z-index: 2;
+}
+
+.mastheadText {
+  z-index: 3;
   h1 {
-    color: lighten($accent1Color, 0%);
-    font-size: 4em;
-    margin-top: 0;
+    color: white;
+    margin: 0;
+    text-align: center;
   }
-  h2 {
-    color: $primary2Color;
-    font-size: 2em;
-    margin: 20px;
-  }
-  a {
-    color: #ddd;
+  h3 {
+    display: block;
+    font-family: $body-font;
+    font-weight: $body-font-weight-bold;
+    color: white;
   }
 }
+
+
 
 .counterContainer {
   text-align: center;
@@ -45,15 +67,16 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  h3 {
-    font-family: 'Lora', serif;
-    font-weight: 400;
+  h2{
+    font-family: $body-font;
+    font-weight: $body-font-weight-normal;
     color: $primary1Color;
     text-align: center;
     max-width: 35em;
     padding: 1em;
+    margin: 0;
     line-height: 1.75em;
-    font-size: 1.15em;
+    font-size: 1.25em;
 
     @include mq($from: tablet) {
       padding: 1.5em;
@@ -64,11 +87,11 @@
 }
 
 .featureSection {
-  composes: container;
-  background-color: lighten($accent3Color, 35%);
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
+  padding: 1em;
   @include mq($from: tablet) {
     flex-direction: row;
     justify-content: center;
@@ -79,43 +102,46 @@
   composes: z-1;
   background: white;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  justify-content: flex-end;
   border-radius: 2px;
-  margin: 1em 0;
+  width: 100%;
+  height: 18em;
+  max-width: 27em;
+  margin: 1em;
+  background-origin: content-box;
+  background-repeat: no-repeat;
   transition: all 0.2s ease-in-out;
   &:hover {
     box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
   }
   h2 {
-    margin-top: 0.5em;
+    padding: 0 0 12px 12px;
+    margin: 0;
+    color: white;
   }
-
-
+  p {
+    box-sizing: border-box;
+    width: 100%;
+    min-height: 4em;
+    background-color: white;
+    padding: 12px;
+    margin-bottom: 0;
+  }
   @include mq($from: tablet) {
+    flex: 1 1 18em;
     flex-direction: column;
-    margin: 0 2em;
-    padding: 1em;
-    min-width: 18em;
-    width: 27em;
-    height: 18em;
+    justify-content: flex-end;
+    margin: 2em;
   }
 }
 
-.cardImage {
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  margin: 1em;
-
-  @include mq($from: tablet) {
-    flex: 1 1 20em;
-    justify-content: center;
-    align-items: center;
-  }
+.featureBlog {
+  composes: feature;
+  background-image: url('./blog.jpg');
 }
 
-.cardImageBackground {
-  width: 5em;
-  height: 5em;
-  fill: lighten($primary1Color, 20%);
+.featureTools {
+  composes: feature;
+  background-image: url('./tools.jpg');
 }

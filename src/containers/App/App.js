@@ -100,11 +100,12 @@ export default class App extends Component {
             {this.props.children}
           </div>
          <div className={styles.footer}>
-            <div className={styles.footerContainer}>
-              <a href="https://www.facebook.com/niko.everett" className="left"><FaFacebookSquare /></a>
-              <a href="https://twitter.com/nikoeverett1" className="center"><FaTwitterSquare /></a>
-              <a href="https://www.linkedin.com/in/nikoeverett" className="right"><FaLinkedinSquare /></a>
-            </div>
+           <h3>Join Me On</h3>
+          <div className={styles.footerContainer}>
+            <a href="https://www.facebook.com/niko.everett" className="left"><FaFacebookSquare /></a>
+            <a href="https://twitter.com/nikoeverett1" className="center"><FaTwitterSquare /></a>
+            <a href="https://www.linkedin.com/in/nikoeverett" className="right"><FaLinkedinSquare /></a>
+          </div>
           </div>
         </div>
       </div>
