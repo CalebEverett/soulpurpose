@@ -11,8 +11,9 @@ export default class Home extends Component {
     };
 
     return (
-      <div>
+      <div className={styles.home}>
         <div className={styles.mastheadContainer}>
+          <img className={styles.posterImage} src={require('./niko.jpg')} />
           <video className={styles.mastheadVideo} src={require('./nikovideo.mp4')} type="video/mp4" preload="true" onCanPlay={handleOnCanPlay} loop="loop" />
           <div className={styles.overlay} />
           <div className={styles.mastheadText}>

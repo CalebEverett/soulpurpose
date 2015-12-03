@@ -3,6 +3,7 @@
 /*Navigation menu styles*/
 $drawer-width: 16em;
 $burger-height: 0.8em;
+$nav-transition-speed: 300ms;
 
 .navBar{
   height: $navBar-height;
@@ -22,7 +23,7 @@ $burger-height: 0.8em;
   height: 100vh;
   background-color: $canvasColor;
   transform: translate(-100%, 0);
-  transition: all 500ms ease-in-out;
+  transition: all $nav-transition-speed ease-in-out;
   z-index: 3;
 }
 
@@ -87,7 +88,7 @@ $burger-height: 0.8em;
   height: 100%;
   overflow: hidden;
   transform: translate(0, 0);
-  transition: all 500ms ease-in-out;
+  transition: all $nav-transition-speed ease-in-out;
 }
 
 .pageWrap:before {
@@ -100,7 +101,7 @@ $burger-height: 0.8em;
   width: 100%;
   z-index: -1;
   background-color: rgba(0,0,0,0.0);
-  transition: all 500ms ease-in-out;
+  transition: all $nav-transition-speed ease-in-out;
 }
 
 .pageWrapOpen {
@@ -118,7 +119,7 @@ $burger-height: 0.8em;
   width: 100%;
   z-index: 3;
   background-color: rgba(0,0,0,0.5);
-  transition: all 500ms ease-in-out;
+  transition: all $nav-transition-speed ease-in-out;
 }
 
 /*Animated Burger Icon*/
@@ -138,14 +139,14 @@ $burger-height: 0.8em;
   width: $burger-height * 1.5;
   height: $burger-height;
   transform: translate(0, 0);
-  transition: all 500ms ease-in-out;
+  transition: all $nav-transition-speed ease-in-out;
   z-index: 4;
 }
 
 .burgerOpen {
   composes: burger;
   transform: translate($drawer-width * 0.7, 0);
-  transition: all 500ms ease-in-out;
+  transition: all $nav-transition-speed ease-in-out;
 }
 
 .barCommon {
@@ -154,7 +155,7 @@ $burger-height: 0.8em;
   left: 0;
   border-top: 2px solid white;
   width: 100%;
-  transition: 0.55s;
+  transition: $nav-transition-speed + 25ms;
 }
 
 .barTop {
@@ -178,7 +179,7 @@ $burger-height: 0.8em;
   top: $burger-height / 3;
   border-top: 2px solid black;
   transform: rotate(50deg);
-  transition: all 0.55s 0.5s;
+  transition: all $nav-transition-speed + 25ms 200ms;
 }
 
 .barMiddleOpen {
@@ -192,7 +193,7 @@ $burger-height: 0.8em;
   top: $burger-height / 3;
   border-top: 2px solid black;
   transform: rotate(-410deg);
-  transition: all 0.55s 0.5s;
+  transition: all $nav-transition-speed + 25ms 200mss;
 }
 
 //Footer styles
