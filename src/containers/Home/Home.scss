@@ -1,59 +1,94 @@
 @import "../../theme/variables.scss";
 
 .home {
-  z-index: -5
+  position: relative;
 }
 
 .mastheadContainer {
   height: 63vh;
-  overflow: hidden;
   display: flex;
-  flex-direction: column;
-  align-content: flex-end;
-  display: relative;
+  align-items: flex-end;
+  overflow: hidden;
+  position: relative;
+  @include mq($from: tablet) {
+    align-items: center;
+  }
+  @include mq($from: desktop) {
+    align-items: flex-end;
+  }
 }
 
 .videoElements {
   position: absolute;
-  //bottom: 50%;
-  //right: 50%;
-  //transform: translateX(-50%) translateY(-50%);
-  //min-width: 100%;
-  //min-height: 100%;
-  //width: auto;
-  //height: auto;
-  //overflow: hidden;
+  min-width: 100%;
+  min-height: 100%;
+  top: 0;
+  overflow: hidden;
+}
+
+.posterImage {
+  background-image: url('./niko.jpg');
+  background-size: cover;
+  background-position: center top;
+  height: auto;
+  width: 100%;
+  position: absolute;
+  composes: videoElements;
 }
 
 .mastheadVideo {
   composes: videoElements;
-}
-
-.posterImage {
-  composes: videoElements;
+  bottom: 50%;
+  right: 50%;
+  transform: translateX(50%) translateY(0%);
 }
 
 .overlay {
+  opacity: 0.5;
   composes: videoElements;
-  background-color: rgba(0,0,0,0.4);
+  height: 63vh;
+  //background: #7b4397; /* fallback for old browsers */
+  //background: -webkit-linear-gradient(to left, #7b4397 , #dc2430); /* Chrome 10-25, Safari 5.1-6 */
+  //background: linear-gradient(to left, #7b4397 , #dc2430); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  //background-color: rgba(0,0,0,0.4);
+  background-image: radial-gradient(farthest-corner at 45px 45px , #FF0000 0%, #0000FF 100%);
+  transition: all 3s 4s ease-in-out;
+  //z-index: -1;
+}
+
+.overlayVideo {
+  composes: overlay;
+  opacity: 0.2;
 }
 
 .mastheadText {
-  z-index: 0;
+  z-index: 1;
+  width: 100%;
+  text-align: center;
+  padding: 0 1em;
   h1 {
     color: white;
     margin: 0;
-    text-align: center;
+    font-size: 3.0em;
+    @include mq($from: tablet) {
+    font-size: 4.25em;
+    line-height: 1.1471em;
+    }
   }
   h3 {
-    display: block;
+    //display: block;
     font-family: $body-font;
     font-weight: $body-font-weight-bold;
     color: white;
+    font-size: 1.25em;
+    line-height: 1.1em;
+    margin-bottom: 0.5em;
+    @include mq($from: tablet) {
+    font-size: 1.625em;
+    line-height: 1.1em;
+    }
   }
 }
-
-
 
 .counterContainer {
   text-align: center;
@@ -61,6 +96,7 @@
 }
 
 .inspirationSection {
+  position: relative;
   composes: container;
   display: flex;
   align-items: center;
@@ -73,7 +109,7 @@
     max-width: 35em;
     padding: 1em;
     margin: 0;
-    line-height: 1.75em;
+    line-height: 1.35em;
     font-size: 1.25em;
 
     @include mq($from: tablet) {
