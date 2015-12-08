@@ -3,15 +3,18 @@ FROM node:4.2
 RUN mkdir -p /app
 WORKDIR /app
 
-COPY . /app/
-
 ENV NODE_ENV=production
 ENV NODE_PATH=./src
 ENV NPM_CONFIG_PRODUCTION=false
 
+ADD package.json /app/package.json
 RUN npm install
-RUN npm run postinstall
 
-EXPOSE 8080
+ADD . /app/
+
+RUN npm run build
+
+EXPOSE 80
+EXPOSE 3030
 
 CMD [ "npm", "start" ]

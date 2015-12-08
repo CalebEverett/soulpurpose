@@ -20,7 +20,7 @@
     "start-prod": "better-npm-run start-prod",
     "start-prod-api": "better-npm-run start-prod-api",
     "build": "webpack --verbose --colors --display-error-details --config webpack/prod.config.js",
-    "postinstall": "webpack --display-error-details --config webpack/prod.config.js --profile --json > stats.json",
+    "postinstall": "webpack --display-error-details --config webpack/prod.config.js",
     "lint": "eslint -c .eslintrc src api",
     "start-dev": "better-npm-run start-dev",
     "start-dev-api": "better-npm-run start-dev-api",
@@ -36,7 +36,7 @@
       "env": {
         "NODE_PATH": "./src",
         "NODE_ENV": "production",
-        "PORT": 8080,
+        "PORT": 80,
         "APIPORT": 3030
       }
     },
