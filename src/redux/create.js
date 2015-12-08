@@ -28,7 +28,5 @@ export default function createStore(reduxReactRouter, getRoutes, createHistory, 
       store.replaceReducer(require('./modules/reducer'));
     });
   }
-
-  addResponsiveHandlers(store);
   return store;
 }

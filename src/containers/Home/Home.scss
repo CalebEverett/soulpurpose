@@ -44,14 +44,14 @@
 }
 
 .overlay {
-  opacity: .7;
+  opacity: .8;
   composes: videoElements;
   height: 63vh;
   //background: #7b4397; /* fallback for old browsers */
   //background: -webkit-linear-gradient(to left, #7b4397 , #dc2430); /* Chrome 10-25, Safari 5.1-6 */
   //background: linear-gradient(to left, #7b4397 , #dc2430); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   //background-color: rgba(0,0,0,0.4);
-  background-image: radial-gradient(rgba(0, 0, 0, 0.3) 30%, rgba(0, 0, 0, 0.5) 70%);
+  background-image: radial-gradient(rgba(0, 0, 0, 0.4) 20%, rgba(0, 0, 0, 0.6) 70%);
   transition: all 3s 4s ease-in-out;
   //z-index: -1;
 }
@@ -59,7 +59,7 @@
 .overlayVideo {
   composes: overlay;
   opacity: 0.4;
-  background-image: radial-gradient(rgba(0, 0, 0, 0.2) 30%, rgba(0, 0, 0, 0.5) 70%);
+  background-image: radial-gradient(rgba(0, 0, 0, 0.25) 40%, rgba(0, 0, 0, 0.5) 80%);
 }
 
 .mastheadText {
