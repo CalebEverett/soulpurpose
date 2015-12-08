@@ -30,7 +30,7 @@ function fetchData(getState, dispatch) {
 
 @connectData(fetchData)
 @connect(
-  state => ({user: state.auth.user, browser: state.browser, path: state.router.routes[1].path, store: state.store}),
+  state => ({user: state.auth.user, store: state.store}),
   {logout, pushState})
 export default class App extends Component {
   static propTypes = {
@@ -46,12 +46,7 @@ export default class App extends Component {
   }
 
   static childContextTypes = {
-    history: PropTypes.object,
-    spTheme: PropTypes.object
-  }
-
-  getChildContext() {
-    return {spTheme: spTheme};
+    history: PropTypes.object
   }
 
   constructor(props) {

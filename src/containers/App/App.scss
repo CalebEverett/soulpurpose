@@ -83,13 +83,6 @@ $nav-transition-speed: 300ms;
   }
 }
 
-<<<<<<< HEAD
-.button {
-  textAlign: 'center';
-}
-
-.appContent {
-=======
 .pageWrap {
   width: 100%;
   height: 100%;
@@ -154,7 +147,6 @@ $nav-transition-speed: 300ms;
   composes: burger;
   transform: translate($drawer-width * 0.7, 0);
   transition: all $nav-transition-speed ease-in-out;
->>>>>>> refs/heads/prod
 }
 
 .barCommon {

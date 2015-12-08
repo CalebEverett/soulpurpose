@@ -1,7 +1,6 @@
 export App from './App/App';
 export Chat from './Chat/Chat';
 export Home from './Home/Home';
-export Home2 from './Home2/Home2';
 export Widgets from './Widgets/Widgets';
 export About from './About/About';
 export Login from './Login/Login';
