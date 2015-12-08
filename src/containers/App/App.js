@@ -1,19 +1,34 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
+import { IndexLink, Link } from 'react-router';
 import DocumentMeta from 'react-document-meta';
 import { isLoaded as isInfoLoaded, load as loadInfo } from 'redux/modules/info';
 import { isLoaded as isAuthLoaded, load as loadAuth, logout } from 'redux/modules/auth';
-import { InfoBar, Test, MaterialLeftNav } from 'components';
 import { pushState } from 'redux-router';
+import connectData from 'helpers/connectData';
 import config from '../../config';
-const ThemeManager = require('material-ui/lib/styles/theme-manager');
-const themeDecorator = require('material-ui/lib/styles/theme-decorator');
-const spTheme = require('../../theme/sptheme.js');
-
+import FaHome from 'react-icons/lib/fa/home';
+import FaNewspaperO from 'react-icons/lib/fa/newspaper-o';
+import FaWrench from 'react-icons/lib/fa/wrench';
+import FaUser from 'react-icons/lib/fa/user';
+import FaFacebookSquare from 'react-icons/lib/fa/facebook-square';
+import FaTwitterSquare from 'react-icons/lib/fa/twitter-square';
+import FaLinkedinSquare from 'react-icons/lib/fa/linkedin-square';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 injectTapEventPlugin();
 
-@themeDecorator(ThemeManager.getMuiTheme(spTheme))
+function fetchData(getState, dispatch) {
+  const promises = [];
+  if (!isInfoLoaded(getState())) {
+    promises.push(dispatch(loadInfo()));
+  }
+  if (!isAuthLoaded(getState())) {
+    promises.push(dispatch(loadAuth()));
+  }
+  return Promise.all(promises);
+}
+
+@connectData(fetchData)
 @connect(
   state => ({user: state.auth.user, browser: state.browser, path: state.router.routes[1].path, store: state.store}),
   {logout, pushState})
@@ -23,8 +38,7 @@ export default class App extends Component {
     user: PropTypes.object,
     logout: PropTypes.func.isRequired,
     pushState: PropTypes.func.isRequired,
-    browser: PropTypes.object,
-    path: PropTypes.string
+    navOpen: PropTypes.bool
   };
 
   static contextTypes = {
@@ -40,6 +54,11 @@ export default class App extends Component {
     return {spTheme: spTheme};
   }
 
+  constructor(props) {
+    super(props);
+    this.state = {navOpen: false};
+  }
+
   componentWillReceiveProps(nextProps) {
     if (!this.props.user && nextProps.user) {
       // login
@@ -50,45 +69,52 @@ export default class App extends Component {
     }
   }
 
-  static fetchData(getState, dispatch) {
-    const promises = [];
-    if (!isInfoLoaded(getState())) {
-      promises.push(dispatch(loadInfo()));
-    }
-    if (!isAuthLoaded(getState())) {
-      promises.push(dispatch(loadAuth()));
-    }
-    return Promise.all(promises);
-  }
-
-  handleLogout(event) {
+  handleLogout = (event) => {
     event.preventDefault();
     this.props.logout();
   }
 
   render() {
     const styles = require('./App.scss');
-    const {browser, path} = this.props;
-    const message = `The viewport's current media type is: ${browser.mediaType}.`;
+    const navOpen = this.state.navOpen;
 
+    const handleNavClick = () => {
+      this.setState({navOpen: !this.state.navOpen});
+    };
+
+    const burgerIcon = (
+      <div className={styles['burger' + (navOpen ? 'Open' : '')]} onClick={handleNavClick}>
+        <span className={styles[navOpen ? 'barTopOpen' : 'barTop']} />
+        <span className={styles[navOpen ? 'barMiddleOpen' : 'barMiddle']} />
+        <span className={styles[navOpen ? 'barBottomOpen' : 'barBottom']} />
+      </div>
+    );
     return (
       <div className={styles.app}>
         <DocumentMeta {...config.app}/>
-        <div className={styles.appContent}>
-          <MaterialLeftNav browser={browser} path={path} />
-          <p>
-            {message}
-          </p>
-          {this.props.children}
-        </div>
-        <Test/>
-        <InfoBar/>
-
-        <div className="well text-center">
-          Have questions? Ask for help <a
-          href="https://github.com/erikras/react-redux-universal-hot-example/issues"
-          target="_blank">on Github</a> or in the <a
-          href="https://discordapp.com/channels/102860784329052160/105739309289623552" target="_blank">#react-redux-universal</a> Discord channel.
+        <header className={styles.navBar}>
+          {burgerIcon}
+          <nav className={styles['nav' + (navOpen ? 'Open' : '')]} >
+            <ul className={styles.navList}>
+              <li className={styles.navItem} ><IndexLink to="/" activeClassName={styles.active} onClick={handleNavClick}><FaHome />Home</IndexLink></li>
+              <li className={styles.navItem} ><Link to="/survey" activeClassName={styles.active} onClick={handleNavClick}><FaNewspaperO />Blog</Link></li>
+              <li className={styles.navItem} ><Link to="/widgets" activeClassName={styles.active} onClick={handleNavClick}><FaWrench />Tools</Link></li>
+              <li className={styles.navItem}><a href="#"><FaUser />About</a></li>
+            </ul>
+          </nav>
+        </header>
+        <div className={styles['pageWrap' + (navOpen ? 'Open' : '')]} onClick={navOpen ? handleNavClick : ''}>
+          <div>
+            {this.props.children}
+          </div>
+         <div className={styles.footer}>
+           <h3>Join Me On</h3>
+          <div className={styles.footerContainer}>
+            <a href="https://www.facebook.com/niko.everett" className="left"><FaFacebookSquare /></a>
+            <a href="https://twitter.com/nikoeverett1" className="center"><FaTwitterSquare /></a>
+            <a href="https://www.linkedin.com/in/nikoeverett" className="right"><FaLinkedinSquare /></a>
+          </div>
+          </div>
         </div>
       </div>
     );

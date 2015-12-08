@@ -6,6 +6,7 @@
  *
  */
 
+<<<<<<< HEAD
 // Custom Colors
 $cyan: #33e0ff;
 $humility: #777;
@@ -25,3 +26,65 @@ $font-family-sans-serif: "Helvetica Neue", Helvetica, sans-serif;
 
 //Material Design Colors
 
+=======
+//Fonts
+@import url(https://fonts.googleapis.com/css?family=Roboto:300,500|Josefin+Sans:400,700);
+$heading-font: 'Josefin Sans', sans-serif;
+$heading-font-color: #222;
+$heading-font-weight-normal: 400;
+$heading-font-weight-bold: 700;
+$body-font: 'Roboto', sans-serif;
+$body-font-color: #222;
+$body-font-weight-normal: 300;
+$body-font-weight-bold: 500;
+
+// Colors
+$primary1Color: #FF4890; //pink
+$primary2Color: #00DEFF; //blue
+$primary3Color: #DED0D4; //warm grey
+$accent1Color: #FFE19B;  //yellow
+$accent2Color: #5BFFA3;  //green
+$accent3Color: #9E9E9E;  //grey
+$textColor: #222;
+$alternateTextColor: white;
+$canvasColor: white;
+$borderColor: #E0E0E0;
+
+//Layout
+$container-width: 35em;
+
+// Navigation Bar Variables
+$navBar-height: 3.5em;
+
+@import "./gridless.scss";
+@import "./mq.scss";
+
+.container {
+	max-wdith: 35em;
+	padding: 1em 1em;
+	@include mq($from: tablet) {
+		padding: 2em 2em;
+	}
+}
+
+// Material Design Cards
+.z-1 {
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+
+.z-2 {
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+
+.z-3 {
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+}
+
+.z-4 {
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+.z-5 {
+  box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+}
+>>>>>>> refs/heads/prod

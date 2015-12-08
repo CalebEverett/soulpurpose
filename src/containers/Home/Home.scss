@@ -1,15 +1,71 @@
 @import "../../theme/variables.scss";
 
 .home {
-  dd {
-    margin-bottom: 15px;
+  position: relative;
+}
+
+.mastheadContainer {
+  height: 63vh;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+  position: relative;
+  @include mq($from: tablet) {
+    align-items: center;
+  }
+  @include mq($from: desktop) {
+    align-items: flex-end;
   }
 }
-.masthead {
-  background: #2d2d2d;
-  padding: 40px 20px;
-  color: white;
+
+.videoElements {
+  position: absolute;
+  min-width: 100%;
+  min-height: 100%;
+  top: 0;
+  overflow: hidden;
+}
+
+.posterImage {
+  background-image: url('./niko.jpg');
+  background-size: cover;
+  background-position: center top;
+  height: auto;
+  width: 100%;
+  position: absolute;
+  composes: videoElements;
+}
+
+.mastheadVideo {
+  composes: videoElements;
+  bottom: 50%;
+  right: 50%;
+  transform: translateX(50%) translateY(0%);
+}
+
+.overlay {
+  opacity: 0.5;
+  composes: videoElements;
+  height: 63vh;
+  //background: #7b4397; /* fallback for old browsers */
+  //background: -webkit-linear-gradient(to left, #7b4397 , #dc2430); /* Chrome 10-25, Safari 5.1-6 */
+  //background: linear-gradient(to left, #7b4397 , #dc2430); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  //background-color: rgba(0,0,0,0.4);
+  background-image: radial-gradient(farthest-corner at 45px 45px , #FF0000 0%, #0000FF 100%);
+  transition: all 3s 4s ease-in-out;
+  //z-index: -1;
+}
+
+.overlayVideo {
+  composes: overlay;
+  opacity: 0.2;
+}
+
+.mastheadText {
+  z-index: 1;
+  width: 100%;
   text-align: center;
+<<<<<<< HEAD
   .logo {
     $size: 100px;
     margin: auto;
@@ -22,39 +78,120 @@
     p {
       line-height: $size;
       margin: 0px;
-    }
-    img {
-      width: 75%;
-      margin: auto;
-    }
-  }
+=======
+  padding: 0 1em;
   h1 {
-    color: $cyan;
-    font-size: 4em;
-  }
-  h2 {
-    color: #ddd;
-    font-size: 2em;
-    margin: 20px;
-  }
-  a {
-    color: #ddd;
-  }
-  p {
-    margin: 10px;
-  }
-  .humility {
-    color: $humility;
-    a {
-      color: $humility;
+    color: white;
+    margin: 0;
+    font-size: 3.0em;
+    @include mq($from: tablet) {
+    font-size: 4.25em;
+    line-height: 1.1471em;
+>>>>>>> refs/heads/prod
     }
   }
-  .github {
-    font-size: 1.5em;
+  h3 {
+    //display: block;
+    font-family: $body-font;
+    font-weight: $body-font-weight-bold;
+    color: white;
+    font-size: 1.25em;
+    line-height: 1.1em;
+    margin-bottom: 0.5em;
+    @include mq($from: tablet) {
+    font-size: 1.625em;
+    line-height: 1.1em;
+    }
   }
 }
 
 .counterContainer {
   text-align: center;
   margin: 20px;
+}
+
+.inspirationSection {
+  position: relative;
+  composes: container;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  h2{
+    font-family: $body-font;
+    font-weight: $body-font-weight-normal;
+    color: $primary1Color;
+    text-align: center;
+    max-width: 35em;
+    padding: 1em;
+    margin: 0;
+    line-height: 1.35em;
+    font-size: 1.25em;
+
+    @include mq($from: tablet) {
+      padding: 1.5em;
+      line-height: 1.75em;
+      font-size: 1.625em;
+    }
+  }
+}
+
+.featureSection {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1em;
+  @include mq($from: tablet) {
+    flex-direction: row;
+    justify-content: center;
+  }
+}
+
+.feature {
+  composes: z-1;
+  background: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  border-radius: 2px;
+  width: 100%;
+  height: 18em;
+  max-width: 27em;
+  margin: 1em;
+  background-origin: content-box;
+  background-repeat: no-repeat;
+  transition: all 0.2s ease-in-out;
+  &:hover {
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+  }
+  h2 {
+    padding: 0 0 12px 12px;
+    margin: 0;
+    color: white;
+  }
+  p {
+    box-sizing: border-box;
+    width: 100%;
+    min-height: 4em;
+    background-color: white;
+    padding: 12px;
+    margin-bottom: 0;
+  }
+  @include mq($from: tablet) {
+    flex: 1 1 18em;
+    flex-direction: column;
+    justify-content: flex-end;
+    margin: 2em;
+  }
+}
+
+.featureBlog {
+  composes: feature;
+  background-image: url('./blog.jpg');
+}
+
+.featureTools {
+  composes: feature;
+  background-image: url('./tools.jpg');
 }
