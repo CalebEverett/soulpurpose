@@ -1,26 +1,18 @@
 {
-  "name": "react-redux-universal-hot-example",
-  "description": "Example of an isomorphic (universal) webapp using react redux and hot reloading",
-  "author": "Erik Rasmussen <rasmussenerik@gmail.com> (http://github.com/erikras)",
+  "name": "soulpurpose.io",
+  "description": "Digital catalyst of inspiration and motivation to",
+  "author": "Niko Everett",
   "license": "MIT",
-  "version": "0.9.0",
+  "version": "0..1",
   "repository": {
     "type": "git",
-    "url": "https://github.com/erikras/react-redux-universal-hot-example"
+    "url": "https://github.com/calebeverett/soulpurpose"
   },
-  "homepage": "https://github.com/erikras/react-redux-universal-hot-example",
+  "homepage": "https://soulpurpose.io",
   "keywords": [
-    "react",
-    "isomorphic",
-    "universal",
-    "webpack",
-    "express",
-    "hot reloading",
-    "react-hot-reloader",
-    "redux",
-    "starter",
-    "boilerplate",
-    "babel"
+    "inspiration",
+    "motivation",
+    "Niko Everett"
   ],
   "main": "bin/server.js",
   "scripts": {
