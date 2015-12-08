@@ -3,7 +3,7 @@ FROM node:4.2
 RUN mkdir -p /app
 WORKDIR /app
 
-COPY . /app/
+RUN git clone https://github.com/CalebEverett/soulpurpose.git
 
 ENV NODE_ENV=production
 ENV NODE_PATH=./src
