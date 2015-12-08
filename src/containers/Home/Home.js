@@ -1,9 +1,4 @@
 import React, { Component } from 'react';
-<<<<<<< HEAD
-import { Link } from 'react-router';
-import { CounterButton, GithubButton, MaterialButton } from 'components';
-=======
->>>>>>> refs/heads/prod
 
 export default class Home extends Component {
   constructor(props) {
@@ -13,42 +8,7 @@ export default class Home extends Component {
 
   render() {
     const styles = require('./Home.scss');
-<<<<<<< HEAD
-    // require the logo image both from client and server
-    const logoImage = require('./logo.png');
-    return (
-      <div className={styles.home}>
-        <div className={styles.masthead}>
-          <div className="container">
-            <div className={styles.logo}>
-              <p>
-                <img src={logoImage}/>
-              </p>
-            </div>
-            <h1>react-redux-universal-material</h1>
 
-            <h2>All the modern best practices in one example.</h2>
-
-            <p>
-              <a className={styles.github} href="https://github.com/erikras/react-redux-universal-hot-example"
-                 target="_blank">
-                <i className="fa fa-github"/> View on Github
-              </a>
-            </p>
-            <GithubButton user="erikras"
-                          repo="react-redux-universal-hot-example"
-                          type="star"
-                          width={160}
-                          height={30}
-                          count large/>
-            <GithubButton user="erikras"
-                          repo="react-redux-universal-hot-example"
-                          type="fork"
-                          width={160}
-                          height={30}
-                          count large/>
-            <MaterialButton/>
-=======
     const overlayStyle = this.state.overlayStyle;
 
     const handleOnCanPlay = (event) => {
@@ -58,7 +18,6 @@ export default class Home extends Component {
         event.target.play();
       }, 3000);
     };
->>>>>>> refs/heads/prod
 
     return (
       <div className={styles.home}>

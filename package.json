@@ -3,7 +3,7 @@
   "description": "Digital catalyst of inspiration and motivation to",
   "author": "Niko Everett",
   "license": "MIT",
-  "version": "0..1",
+  "version": "0.0.1",
   "repository": {
     "type": "git",
     "url": "https://github.com/calebeverett/soulpurpose"
@@ -95,7 +95,7 @@
     "react-inline-css": "^2.0.0",
     "material-ui": "^0.13.1",
     "react-redux": "^4.0.0",
-    "react-router": "^1.0.0-rc3",
+    "react-router": "1.0.0-rc3",
     "redux": "^3.0.4",
     "redux-form": "^3.0.12",
     "scroll-behavior": "^0.3.0",
