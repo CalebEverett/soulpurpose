@@ -1,0 +1,25 @@
+@import "../../theme/variables.scss";
+
+.about {
+	composes: container;
+	max-width: $container-width;
+	margin: 0 auto;
+	padding-top: 100px;
+}
+
+.headerbar {
+	height: 60px;
+	width: 100%;
+	position: fixed;
+	top: 0;
+	left: 0;
+	background-color: $primary1Color;
+	z-index: 100;
+}
+
+.nikophoto {
+	border-radius: 50%;
+	height: 30vh;
+	width: auto;
+	margin: 0 auto;
+}

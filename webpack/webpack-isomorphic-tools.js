@@ -42,6 +42,11 @@ module.exports = {
         'webm'
       ],
     },
+    markdown: {
+      extensions: [
+        'md'
+      ],
+    },
     style_modules: {
       extensions: ['less','scss'],
       filter: function(module, regex, options, log) {

@@ -41,7 +41,8 @@ module.exports = {
       { test: webpackIsomorphicToolsPlugin.regular_expression('images'), loader: 'url-loader?limit=10240' },
       { test: /\.mp4(\?v=\d+\.\d+\.\d+)?$/, loader: "file" },
       { test: /\.ogv(\?v=\d+\.\d+\.\d+)?$/, loader: "file" },
-      { test: /\.webm(\?v=\d+\.\d+\.\d+)?$/, loader: "file" }
+      { test: /\.webm(\?v=\d+\.\d+\.\d+)?$/, loader: "file" },
+      { test: /\.md(\?v=\d+\.\d+\.\d+)?$/, loader: "html!markdown" }
     ]
   },
   progress: true,

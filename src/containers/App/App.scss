@@ -155,7 +155,7 @@ $nav-transition-speed: 300ms;
   left: 0;
   border-top: 2px solid white;
   width: 100%;
-  transition: $nav-transition-speed + 25ms;
+  transition: $nav-transition-speed + 25ms 300ms;
 }
 
 .barTop {
@@ -179,7 +179,6 @@ $nav-transition-speed: 300ms;
   top: $burger-height / 3;
   border-top: 2px solid black;
   transform: rotate(50deg);
-  transition: all $nav-transition-speed + 25ms 200ms;
 }
 
 .barMiddleOpen {
@@ -193,7 +192,6 @@ $nav-transition-speed: 300ms;
   top: $burger-height / 3;
   border-top: 2px solid black;
   transform: rotate(-410deg);
-  transition: all $nav-transition-speed + 25ms 200mss;
 }
 
 //Footer styles
