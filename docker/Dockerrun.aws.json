@@ -1,7 +1,7 @@
 {
   "AWSEBDockerrunVersion": "1",
   "Image": {
-    "Name": "calebeverett/soulpurpose:v0.0.1-3-g2ba9bef",
+    "Name": "calebeverett/soulpurpose:v0.0.1-5-g6178275",
     "Update": "true"
   },
   "Ports": [

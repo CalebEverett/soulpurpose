@@ -1,0 +1,10 @@
+branch-defaults:
+  default:
+    environment: soulpurpose-dev
+global:
+  application_name: soulpurpose
+  default_ec2_keyname: aws-eb
+  default_platform: Docker 1.7.1
+  default_region: us-west-1
+  profile: eb-cli
+  sc: null
