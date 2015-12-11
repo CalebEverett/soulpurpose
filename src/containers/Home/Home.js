@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import SubscribeForm from '../../components/SubscribeForm/SubscribeForm.js';
+import https from 'https';
 
 export default class Home extends Component {
   constructor(props) {
@@ -19,6 +21,50 @@ export default class Home extends Component {
       }, 3000);
     };
 
+    const handleSubmit = () => {
+      const subscriber = JSON.stringify({
+        'email': 'caleb@careercalifornia.edu',
+        'last_name': 'Everett',
+        'first_name': 'Caleb'
+      });
+
+      const options = {
+        host: 'api.sendgrid.com',
+        path: '/v3/contactdb/recipients',
+        port: 80,
+        method: 'POST',
+        headers: {
+          'Authorization': 'Bearer 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',
+          'Content-Type': 'application/json',
+          'Content-Length': subscriber.length
+        }
+      };
+
+      console.log(options);
+
+      const hreq = https.request(options, function submitme(hres) {
+        console.log('STATUS CODE: ' + hres.statusCode);
+        console.log('HEADERS: ' + JSON.stringify(hres.headers));
+        hres.setEncoding('utf8');
+
+        hres.on('data', function datame(chunk) {
+          console.log('\n\n===========CHUNK===============');
+          console.log(chunk);
+        });
+
+        hres.on('end', function endme() {
+          console.log('\n\n=========RESPONSE END===============');
+        });
+
+        hres.on('error', function errorme(error) {
+          console.log('ERROR: ' + error.message);
+        });
+      });
+
+      hreq.write(subscriber);
+      hreq.end();
+    };
+
     return (
       <div className={styles.home}>
         <div className={styles.mastheadContainer}>
@@ -30,6 +76,7 @@ export default class Home extends Component {
             <h3>Let’s see our greatness, taste our desire and feel our passion!</h3>
           </div>
         </div>
+        <SubscribeForm onSubmit={handleSubmit}/>
         <section className={styles.inspirationSection}>
           <h2>Let’s believe in something big and reach beyond our grasp. Let’s fall and get back up. Let’s <strong>SHINE!</strong> Let’s feel good and happy and alive. Let’s set this world on <strong>FIRE!</strong></h2>
         </section>
