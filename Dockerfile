@@ -1,7 +1,8 @@
+# Trying to invalidate cache
 FROM node:onbuild
 
-ADD package.json package.json
-RUN npm install
+RUN mkdir -p /usr/src/app
+WORKDIR /usr/src/app
 
 ADD . .
 
