@@ -72,7 +72,7 @@ export default class Home extends Component {
           <video className={styles.mastheadVideo} src={require('./nikovideo.mp4')} type="video/mp4" preload="true" onCanPlay={handleOnCanPlay} loop="loop" />
           <div className={styles[overlayStyle]} />
           <div className={styles.mastheadText}>
-            <h1>SOUL PURPOSE</h1>
+            <h1>SOUL PURPOSEFULNESS</h1>
             <h3>Let’s see our greatness, taste our desire and feel our passion!</h3>
           </div>
         </div>
